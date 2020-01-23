@@ -28,7 +28,7 @@ Display::~Display()
     SDL_Quit();
 }
 
-bool Display::IsClose()
+bool Display::IsClose() const
 {
     return _isClose;
 }
@@ -43,4 +43,10 @@ void Display::Update()
             _isClose = true;
         }
     }
+}
+
+void Display::Clear(float r, float g, float b, float a) const
+{
+    glClearColor(r,g,b,a);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
